@@ -3,8 +3,9 @@
  * Module dependencies.
  */
 
-var express = require('express'), 
-cors = require('cors');
+var express = require('express');
+//cors = require('cors');
+var favicon = require('serve-favicon');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
@@ -22,6 +23,7 @@ app.use(express.methodOverride());
 // app.use(cors);
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 // development only
 if ('development' == app.get('env')) {
